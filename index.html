@@ -1,95 +1,31 @@
 <!DOCTYPE html>
 <html>
-<style>
-body, html {
-    height: 100%;
-    margin: 0;
-}
+<link rel="stylesheet" href="test.css">
+<video poster="https://sonectar.files.wordpress.com/2014/03/stevie.jpg" id="bgvid" playsinline autoplay muted loop>
+<source src="343379421.mp4" type="video/mp4">
+</video>
+<div id="polina">
+<h1>Sintayi</h1>
+<p>The greek work for recipe
+<p>Cooking recipes, image recognition and artificial inteligence in the cloud!</p>
+<p>Coming Not Soon Enough!</p>
+<button onclick="myFunction()">Check out our AI sample</button>
 
-.bgimg {
-    background-image: url('http://www.guanchaoge.com/data/out/103/56160060-octopus-wallpapers.jpg');
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    color: white;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 25px;
-}
-
-.topleft {
-    position: absolute;
-    top: 0;
-    left: 16px;
-}
-
-.bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 16px;
-}
-
-.middle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-hr {
-    margin: auto;
-    width: 40%;
-}
-</style>
-<body>
-
-<div class="bgimg">
-  <div class="topleft">
-    <p>SINTAYI</p>
-  </div>
-  <div class="middle">
-    <h1>COMING SOON</h1>
-    <hr>
-    <p id="demo" style="font-size:30px"></p>
-  </div>
-  <div class="bottomleft">
-    <p>NO HOT DOG, but I will show you how to cook Octapus 8 different ways</p>
-  </div>
-</div>
+<p id="demo"></p>
 
 <script>
-// Set the date we're counting down to
-var countDownDate = new Date("JUL 5, 2017 15:37:25").getTime();
+window.alert("Θα σας δείξω οκτώ διαφορετικούς τρόπους για να μαγειρέψετε το χταπόδι!Και οχι μονο....");
 
-window.alert("Θα σας δείξω οκτώ διαφορετικούς τρόπους για να μαγειρέψετε το χταπόδι!");
-
-// Update the count down every 1 second
-var countdownfunction = setInterval(function() {
-
-    // Get todays date and time
-    var now = new Date().getTime();
-    
-    // Find the distance between now an the count down date
-    var distance = countDownDate - now;
-    
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-    
-    // If the count down is over, write some text 
-    if (distance < 0) {
-        clearInterval(countdownfunction);
-        document.getElementById("demo").innerHTML = "EXPIRED";
+function myFunction() {
+    var txt;
+    var person = prompt("Please enter your name:", "Harry Potter");
+    if (person == null || person == "") {
+        txt = "User cancelled the prompt.";
+    } else {
+        txt = "Hello " + person + "! Good luck with your plate today, try to chew slowly!";
     }
-}, 1000);
+    document.getElementById("demo").innerHTML = txt;
+}
 </script>
-
-</body>
+</div>
 </html>
