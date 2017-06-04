@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+
+  <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script>
+  // Create the chart
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Health-Ade company objectives'
+    },
+    subtitle: {
+        text: 'Click on the column to see sub-objectives.'
+    },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
+        title: {
+            text: 'Total percent completion'
+        }
+
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y:.1f}%'
+            }
+        }
+    },
+
+    tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+    },
+
+    series: [{
+        name: 'Company Objectives',
+        colorByPoint: true,
+        data: [{
+            name: 'Cases Sold',
+            y: 56.33,
+            drilldown: 'Cases Sold'
+        }, {
+            name: 'Samples Shared',
+            y: 64.03,
+            drilldown: 'Samples shared'
+        }, {
+            name: 'Location footprint Increase',
+            y: 30.38,
+            drilldown: 'Location footprint Increase'
+
+        }]
+    }],
+    drilldown: {
+        series: [{
+            name: 'Cases Sold',
+            id: 'Cases Sold',
+            data: [
+                [
+                    'Sub Objective 1',
+                    54.13
+                ],
+                [
+                    'Sub Objective 2',
+                    17.2
+                ],
+                [
+                    'Sub Objective 3',
+                    8.11
+                ]
+
+            ]
+        }, {
+            name: 'Samples shared',
+            id: 'Samples shared',
+            data: [
+                [
+                    'Samples shared in Oregon',
+                    50
+                ],
+                [
+                    'Samples shared in Cleveland',
+                    40.32
+                ],
+                [
+                    'Samples shared in Oclahoma',
+                    30.68
+                ],
+                [
+                    'Samples shared in LA',
+                    20.96
+         ],
+            ]
+        }, {
+            name: 'Location footprint Increase',
+            id: 'Location footprint Increase',
+            data: [
+                [
+                    'East Coast',
+                    20.76
+                ],
+                [
+                    'West Coast',
+                    21.32
+                ],
+                [
+                    'Europe',
+                    29.31
+                ],
+
+            ]
+
+        }]
+    }
+});
+</script>
+</body>
+</html>
